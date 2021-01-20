@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xff622F74),
       ),
       home: DefaultTabController(
-        length: 3,
+        length: 6,
         child: Scaffold(
           appBar: AppBar(
             leading: IconButton(
@@ -27,25 +27,14 @@ class MyApp extends StatelessWidget {
             ),
             title: Text('Tabs'),
             bottom: TabBar(
+              isScrollable: true,
               tabs: [
-                Tab(
-                  child: Icon(
-                    Icons.mail_outline,
-                    color: Colors.lightGreen,
-                  ),
-                ),
-                Tab(
-                  child: Icon(
-                    Icons.place_outlined,
-                    color: Colors.purpleAccent,
-                  ),
-                ),
-                Tab(
-                  child: Icon(
-                    Icons.phone_android_outlined,
-                    color: Colors.yellow,
-                  ),
-                )
+                MyTab('testing1'),
+                MyTab('testing2'),
+                MyTab('testing3'),
+                MyTab('testing4'),
+                MyTab('testing5'),
+                MyTab('testing6'),
               ],
             ),
           ),
@@ -54,6 +43,9 @@ class MyApp extends StatelessWidget {
               MyCard('Mail', Colors.yellow, Colors.black87),
               MyCard('Home', Colors.blue, Colors.white),
               MyCard('Phone', Colors.red, Colors.white),
+              MyCard('Add', Colors.green, Colors.white),
+              MyCard('Do it', Colors.orange, Colors.white),
+              MyCard('Huh', Colors.pink, Colors.white),
             ],
           ),
         ),
@@ -84,6 +76,21 @@ class MyCard extends StatelessWidget {
     );
   }
 }
+
+class MyTab extends StatelessWidget {
+  final String txt;
+
+  MyTab(this.txt);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Text('$txt'),
+    );
+  }
+}
+
 
 
 
