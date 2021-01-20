@@ -29,12 +29,12 @@ class MyApp extends StatelessWidget {
             bottom: TabBar(
               isScrollable: true,
               tabs: [
-                MyTab('testing1'),
-                MyTab('testing2'),
-                MyTab('testing3'),
-                MyTab('testing4'),
-                MyTab('testing5'),
-                MyTab('testing6'),
+                MyTab('testing1', Icons.person),
+                MyTab('testing2', Icons.business_center_sharp),
+                MyTab('testing3', Icons.bus_alert),
+                MyTab('testing4', Icons.dangerous),
+                MyTab('testing5', Icons.thumb_up),
+                MyTab('testing6', Icons.place_outlined),
               ],
             ),
           ),
@@ -79,14 +79,20 @@ class MyCard extends StatelessWidget {
 
 class MyTab extends StatelessWidget {
   final String txt;
+  final IconData icon;
 
-  MyTab(this.txt);
+  MyTab(this.txt, this.icon);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Text('$txt'),
+      child: Column(
+        children: [
+          Icon(icon),
+          Text('$txt'),
+        ],
+      ),
     );
   }
 }
